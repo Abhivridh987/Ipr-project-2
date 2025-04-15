@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Urban Mobility Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    header {
+      background: #1e1e1e;
+      padding: 1rem 2rem;
+      text-align: center;
+      border-bottom: 2px solid #00ffd5;
+    }
+    header h1 {
+      color: #00ffd5;
+      font-size: 2rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #00ffd5;
+    }
+    .hero {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00ffd5;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .feature {
+      background: #1e1e1e;
+      padding: 1.5rem;
+      border: 1px solid #333;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+    .feature h3 {
+      color: #00ffd5;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      text-align: center;
+      padding: 2rem 0 1rem;
+      color: #00ffd5;
+    }
+    .booking, .login, .dashboard {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #1e1e1e;
+      margin: 2rem;
+      border-radius: 10px;
+    }
+    .booking input, .login input, .booking select {
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      width: 80%;
+      border: none;
+      border-radius: 5px;
+    }
+    .booking button, .login button {
+      padding: 0.7rem 1.5rem;
+      background: #00ffd5;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    iframe, canvas {
+      border: none;
+      width: 100%;
+      height: 300px;
+      margin-top: 1rem;
+      border-radius: 10px;
+    }
+    .dashboard-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .stat-box {
+      background: #2a2a2a;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      width: 200px;
+    }
+    .stat-box h4 {
+      color: #00ffd5;
+    }
+    .filters {
+      margin: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .filters select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+    }
+    .charts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #1e1e1e;
+      margin-top: 2rem;
+      border-top: 1px solid #00ffd5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Smart Urban Mobility Platform</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#booking">Booking</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#login">Login</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>  <section class="hero">
+    <h2>Revolutionizing Urban Transportation</h2>
+    <p>Eco-friendly, data-driven, multimodal commuting at your fingertips.</p>
+  </section>  <section class="features" id="features">
+    <div class="feature">
+      <h3>Public Transport Integration</h3>
+      <p>Find and combine buses, metro rails, and local trains based on traffic, emissions, and cost.</p>
+    </div>
+    <div class="feature">
+      <h3>Optimized Smart Routes</h3>
+      <p>AI-powered path finder that suggests optimal travel using various metrics like economy, time, and pollution.</p>
+    </div>
+    <div class="feature">
+      <h3>Secondary Rentals</h3>
+      <p>Car and two-wheeler rentals as convenient backup transport options.</p>
+    </div>
+    <div class="feature">
+      <h3>Unified Booking</h3>
+      <p>Book your complete route—metro to e-bike—in one place with minimal charges.</p>
+    </div>
+    <div class="feature">
+      <h3>Live Traffic Simulation</h3>
+      <p>Get real-time updates of traffic and congestion with color-coded routes for better decision-making.</p>
+    </div>
+    <div class="feature">
+      <h3>Visual Route Planner</h3>
+      <p>Interactively choose source and destination and view optimal route visually on a dynamic map.</p>
+    </div>
+  </section>  <h2 class="section-title">Map View</h2>
+  <section class="booking">
+    <p style="color:#bbb">* Mock map showcasing points: Central Station, Tech Park, Green Mall, City Hospital, Metro Hub, University, Eco Village, Old Town, Riverside Park, West End, Sunrise Plaza, IT Bay, North Gate.</p>
+    <iframe src="https://via.placeholder.com/800x300?text=Smart+Urban+Mobility+Fake+Map+View" allowfullscreen=""></iframe>
+  </section>  <h2 class="section-title" id="booking">Book Your Trip</h2>
+  <section class="booking">
+    <select>
+      <option selected disabled>From</option>
+      <option>Central Station</option>
+      <option>Tech Park</option>
+      <option>Green Mall</option>
+      <option>Metro Hub</option>
+    </select>
+    <select>
+      <option selected disabled>To</option>
+      <option>Eco Village</option>
+      <option>City Hospital</option>
+      <option>West End</option>
+      <option>Sunrise Plaza</option>
+    </select>
+    <input type="datetime-local">
+    <select>
+      <option selected disabled>Preferred Mode (optional)</option>
+      <option>Public Transport Only</option>
+      <option>Mix with Scooter</option>
+      <option>Mix with Car Rental</option>
+    </select>
+    <button>Find Smart Route (₹12 service charge)</button>
+  </section>  <h2 class="section-title" id="dashboard">City Planner Dashboard</h2>
+  <section class="dashboard">
+    <div class="filters">
+      <select>
+        <option selected disabled>Filter by District</option>
+        <option>Central</option>
+        <option>West Side</option>
+        <option>North Zone</option>
+      </select>
+      <select>
+        <option selected disabled>Filter by Transport Mode</option>
+        <option>Bus</option>
+        <option>Metro</option>
+        <option>Bike</option>
+        <option>Car</option>
+      </select>
+    </div>
+    <div class="dashboard-stats">
+      <div class="stat-box">
+        <h4>Total Trips Today</h4>
+        <p>5,842</p>
+      </div>
+      <div class="stat-box">
+        <h4>Average Commute Time</h4>
+        <p>32 mins</p>
+      </div>
+      <div class="stat-box">
+        <h4>CO2 Emission Saved</h4>
+        <p>2.3 tons</p>
+      </div>
+      <div class="stat-box">
+        <h4>Top Used Route</h4>
+        <p>Metro Hub → IT Bay</p>
+      </div>
+      <div class="stat-box">
+        <h4>Transport Mode Ratio</h4>
+        <p>Bus 40% | Metro 35% | Bike 15% | Car 10%</p>
+      </div>
+    </div>
+    <div class="charts">
+      <canvas id="tripChart"></canvas>
+      <canvas id="co2Chart"></canvas>
+    </div>
+  </section>  <h2 class="section-title" id="login">User Login</h2>
+  <section class="login">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button>Login</button>
+  </section>  <footer id="contact">
+    <p>Contact us at info@smartmobility.com</p>
+    <p>&copy; 2025 Smart Urban Mobility Platform</p>
+  </footer>  <script>
+    const tripChart = new Chart(document.getElementById('tripChart'), {
+      type: 'line',
+      data: {
+        labels: ['6 AM', '9 AM', '12 PM', '3 PM', '6 PM', '9 PM'],
+        datasets: [{
+          label: 'Trips Over Time',
+          data: [120, 450, 320, 380, 600, 220],
+          backgroundColor: 'rgba(0,255,213,0.2)',
+          borderColor: '#00ffd5',
+          fill: true
+        }]
+      }
+    });
+
+    const co2Chart = new Chart(document.getElementById('co2Chart'), {
+      type: 'bar',
+      data: {
+        labels: ['Bus', 'Metro', 'Bike', 'Car'],
+        datasets: [{
+          label: 'CO2 Emission Saved (kg)',
+          data: [800, 1200, 500, 200],
+          backgroundColor: ['#00ffd5', '#00ccaa', '#009988', '#007766']
+        }]
+      }
+    });
+  </script></body>
+</html>
